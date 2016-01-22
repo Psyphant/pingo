@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
 
-  <title><%= content_for?(:title) ? yield(:title) : "Duhajo" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "Pingo" %></title>
 
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
@@ -13,7 +13,7 @@
 </head>
 
 <body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
-<div id="duhajo">
+<div id="pingo">
   <nav id="topbar" class="navbar-default navbar-inverse" role="navigation">
     <section class="container-fluid">
       <div class="row">
@@ -108,7 +108,7 @@
     </div>
     <div id="footer">
       <div class="icons">
-        Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>, <a href="http://www.flaticon.com/authors/daniel-bruce" title="Daniel Bruce">Daniel Bruce</a>, <a href="http://www.flaticon.com/authors/elegant-themes" title="Elegant Themes">Elegant Themes</a>, <a href="http://www.flaticon.com/authors/icomoon" title="Icomoon">Icomoon</a>, <a href="http://www.flaticon.com/authors/simpleicon" title="SimpleIcon">SimpleIcon</a>, <a href="http://www.flaticon.com/authors/catalin-fertu" title="Catalin Fertu">Catalin Fertu</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
+        Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>, <a href="http://www.flaticon.com/authors/daniel-bruce" title="Daniel Bruce">Daniel Bruce</a>, <a href="http://www.flaticon.com/authors/icomoon" title="Icomoon">Icomoon</a>, <a href="http://www.flaticon.com/authors/simpleicon" title="SimpleIcon">SimpleIcon</a>, <a href="http://www.flaticon.com/authors/catalin-fertu" title="Catalin Fertu">Catalin Fertu</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
       </div>
     </div>
   </div>

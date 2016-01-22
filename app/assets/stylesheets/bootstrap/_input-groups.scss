@@ -5,9 +5,11 @@
 // Base styles
 // -------------------------
 .input-group {
+  @extend .form-control;
   position: relative; // For dropdowns
   display: table;
   border-collapse: separate; // prevent input groups from inheriting border styles from table cells when placed within a table
+  padding: 0;
 
   // Undo padding and float of grid classes
   &[class*="col-"] {
@@ -29,6 +31,11 @@
 
     width: 100%;
     margin-bottom: 0;
+
+    border: 0 none;
+    box-shadow: none;
+    padding-left: 0;
+    background-color: transparent;
   }
 }
 
@@ -67,15 +74,14 @@
 // Text input groups
 // -------------------------
 .input-group-addon {
-  padding: $padding-base-vertical $padding-base-horizontal;
+  padding: 0 $padding-base-horizontal;
   font-size: $font-size-base;
   font-weight: normal;
   line-height: 1;
   color: $input-color;
   text-align: center;
-  background-color: $input-group-addon-bg;
-  border: 1px solid $input-group-addon-border-color;
-  border-radius: $border-radius-base;
+  //background-color: $input-group-addon-bg;
+  font-size: 24px;
 
   // Sizing
   &.input-sm {

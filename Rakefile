@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Duhajo::Application.load_tasks
+Pingo::Application.load_tasks

@@ -14,7 +14,7 @@
         font-size: 20px;
 font-style: normal;
 margin-left: 20px;
-}.flaticon-active4:before {
+}.flaticon-active3:before {
 	content: "\e000";
 }
 .flaticon-add139:before {
@@ -23,42 +23,48 @@ margin-left: 20px;
 .flaticon-agreement2:before {
 	content: "\e002";
 }
-.flaticon-alarm54:before {
+.flaticon-alarm31:before {
 	content: "\e003";
 }
-.flaticon-chat55:before {
+.flaticon-attachment15:before {
 	content: "\e004";
 }
-.flaticon-clip20:before {
+.flaticon-chat55:before {
 	content: "\e005";
 }
 .flaticon-gear30:before {
 	content: "\e006";
 }
-.flaticon-loudspeaker41:before {
+.flaticon-look9:before {
 	content: "\e007";
 }
-.flaticon-map32:before {
+.flaticon-loudspeaker41:before {
 	content: "\e008";
 }
-.flaticon-menu7:before {
+.flaticon-map32:before {
 	content: "\e009";
 }
-.flaticon-multiple25:before {
+.flaticon-menu41:before {
 	content: "\e00a";
 }
-.flaticon-note65:before {
+.flaticon-multiple25:before {
 	content: "\e00b";
 }
-.flaticon-notify:before {
+.flaticon-note65:before {
 	content: "\e00c";
 }
-.flaticon-onlinestore1:before {
+.flaticon-notify:before {
 	content: "\e00d";
 }
-.flaticon-pulse1:before {
+.flaticon-onlinestore1:before {
 	content: "\e00e";
 }
-.flaticon-speech96:before {
+.flaticon-pulse1:before {
 	content: "\e00f";
+}
+.flaticon-speech96:before {
+	content: "\e010";
+}
+.flaticon-tool574:before {
+	content: "\e011";
 }

@@ -33,7 +33,7 @@ a:-moz-any-link:focus {
   outline: none;
 }
 
-#duhajo {
+#pingo {
   height: 100%;
   overflow: visible;
 
@@ -44,9 +44,6 @@ a:-moz-any-link:focus {
     #search-wrapper {
       @extend .col-xs-4;
       #search-box {
-        float: none;
-        margin: 17px auto;
-
         #my-pins-link .icon {
           position: absolute;
           left: 6px;
@@ -212,13 +209,13 @@ a:-moz-any-link:focus {
       margin-bottom: -1px;
       display: inline-block;
       &:hover, &:focus {
-        border-bottom: 2px solid;
+        border-bottom: 3px solid;
         background-color: transparent;
       }
     }
     &.active {
       a {
-        border-bottom: 2px solid;
+        border-bottom: 3px solid;
       }
     }
   }

@@ -1,4 +1,4 @@
-Duhajo::Application.configure do
+Pingo::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -30,15 +30,15 @@ Duhajo::Application.configure do
   config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   config.assets.compile = true
-  
+
   # Do not compress assets
   config.assets.compress = false
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  
+
   config.serve_static_assets = true
-  
+
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
 end

@@ -12,6 +12,6 @@
 === Demo / Letzter Stand
 Findet ihr hier: https://duhajo.herokuapp.com
 
-=== Mitstreiter 
+=== Mitstreiter
 
 ... werden noch immer gesucht.

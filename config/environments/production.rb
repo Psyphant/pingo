@@ -1,4 +1,4 @@
-Duhajo::Application.configure do
+Pingo::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   require 'jquery/modal/rails'

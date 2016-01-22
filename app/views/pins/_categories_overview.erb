@@ -37,18 +37,20 @@
       </div>
     <% end -%>
   <% end %>
-  <div class="category unsorted">
-    <div class="category-head"><a href="/pins?scope=unsorted"><%=t("Nicht einsortierte Pins")%></a></div>
-    <div class="category-body">
-      <% if !@unsorted_pin_tags.empty? %>
-        <ul class="tag-list">
-          <% tag_cloud(@unsorted_pin_tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-            <li><%= link_to tag.name, {:controller => :tags, :action => :show, :id => tag.id}, :class => "tag" %></li>
-          <% end %>
-        </ul>
-      <% else %>
-        #ToDo: Bild?
-      <% end %>
+  <% if !@unsorted_pin_tags.blank? %>
+    <div class="category unsorted">
+      <div class="category-head"><a href="/pins?scope=unsorted"><%=t("Nicht einsortierte Pins")%></a></div>
+      <div class="category-body">
+        <% if !@unsorted_pin_tags.empty? %>
+          <ul class="tag-list">
+            <% tag_cloud(@unsorted_pin_tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+              <li><%= link_to tag.name, {:controller => :tags, :action => :show, :id => tag.id}, :class => "tag" %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          #ToDo: Bild?
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>

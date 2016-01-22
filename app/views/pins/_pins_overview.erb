@@ -2,13 +2,14 @@
   <div id="pin-type-header">
     <div class="header supply">
       <h2>
-        <span class="icon loudspeaker"></span>
+        <span class="icon supply"></span>
         <span class="icon-label"><span class="pre"><%= t('pins_list_pre') %></span> <%= t('pins_list_supplies') %></span>
       </h2>
     </div>
     <div class="header filter-wrapper">
       <div class="filter">
-        <%= form_tag pins_path, :method => 'get', :id => 'pins-search' do %>
+        <%= form_tag pins_path, :method => 'get', :id => 'pins-search', :class => 'input-group' do %>
+          <span class="input-group-addon icon search"></span>
           <%= text_field_tag :name, params[:name], :placeholder => t('filter_by'), :class => 'search-input form-control',
           :data => { :scope => "pins" } %>
         <% end %>
@@ -17,7 +18,7 @@
     <div class="header demand">
       <h2>
         <span class="icon-label"><span class="pre"><%= t('pins_list_pre') %></span> <%= t('pins_list_demands') %></span>
-        <span class="icon search"></span>
+        <span class="icon demand"></span>
       </h2>
     </div>
   </div>

@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   encoding: utf8
   reconnect: false
-  database: duhajo_development
+  database: pingo_development
   pool: 5
   username: root
   password: root
@@ -15,7 +15,7 @@ test:
   adapter: postgresql
   encoding: utf8
   reconnect: false
-  database: duhajo_test
+  database: pingo_test
   pool: 5
   username: root
   password: root
@@ -25,7 +25,7 @@ production:
   adapter: postgresql
   encoding: utf8
   reconnect: false
-  database: duhajo_production
+  database: pingo_production
   pool: 5
   username: root
   password: root

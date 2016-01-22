@@ -72,46 +72,52 @@
   &.add:before {
   	content: "\e001";
   }
-  &.pin:before {
-  	content: "\e002";
-  }
-  &.pin:before {
-    content: "\e00b";
+  &.deal:before {
+    content: "\e002";
   }
   &.alarm:before {
   	content: "\e003";
   }
-  &.chat:before {
+  &.attachment:before {
   	content: "\e004";
   }
-  &.attachment:before {
+  &.chat:before {
   	content: "\e005";
   }
   &.settings:before {
   	content: "\e006";
   }
-  &.loudspeaker:before {
+  &.demand:before {
     content: "\e007";
   }
+  &.supply:before {
+    content: "\e008";
+  }
   &.map:before {
-  	content: "\e008";
+  	content: "\e009";
   }
   &.list:before {
-    content: "\e009";
+    content: "\e00a";
   }
   &.users:before {
-  	content: "\e00a";
+  	content: "\e00b";
+  }
+  &.pin:before {
+    content: "\e00c";
   }
   &.notify:before {
-  	content: "\e00c";
-  }
-  &.tag:before {
   	content: "\e00d";
   }
-  &.pulse:before {
+  &.tag:before {
   	content: "\e00e";
   }
-  &.message:before {
+  &.pulse:before {
   	content: "\e00f";
+  }
+  &.message:before {
+  	content: "\e010";
+  }
+  &.filter:before {
+    content: "\e011";
   }
 }

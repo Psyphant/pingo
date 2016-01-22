@@ -1,4 +1,4 @@
-Duhajo::Application.routes.draw do
+Pingo::Application.routes.draw do
 
   get 'places/index'
 
