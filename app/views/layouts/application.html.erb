@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="user-scalable=no,width=device-width"/>
   <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
 
   <title><%= content_for?(:title) ? yield(:title) : "Pingo" %></title>
 
-  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -17,80 +17,90 @@
   <nav id="topbar" class="navbar-default navbar-inverse" role="navigation">
     <section class="container-fluid">
       <div class="row">
-        <!-- Left Nav Section -->
-        <div id="search-wrapper">
-          <ul id="search-box">
-            <%= form_tag(pins_path, id: "search-form") do %>
+        <div class="navbar-header">
+          <div id="mobile-header-logo">
+            <%= link_to image_tag("logo.png"), root_path %>
+          </div>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#pingo-navbar" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+        <div class="navbar-collapse collapse" id="pingo-navbar">
+          <!-- Left Nav Section -->
+          <div id="search-wrapper">
+            <ul id="search-box">
+              <%= form_tag(pins_path, id: "search-form") do %>
+                  <li class="dropdown">
+                    <a href="javascript:;" id="my-pins-link"><span class="icon search"></span></a>
+                    <%= autocomplete_field_tag 'search', '', autocomplete_pin_title_pins_path, placeholder: "Search Pins",
+                        id: "search-input", class: "form-control dropdown-toggle", data: {:toggle => "dropdown"} %>
+                    <ul id="my-pins-list" class="ui-menu">
+                      <%= render :partial => 'mypins', :my_pins => @my_pins %>
+                    </ul>
+                  </li>
+              <% end %>
+            </ul>
+          </div>
+
+          <% if !mobile_browser? %>
+            <div id="header-logo" class="navbar-header">
+              <%= link_to image_tag("logo.png"), root_path %>
+            </div>
+          <% end %>
+
+          <!-- Right Nav Section -->
+          <div id="user-navigation">
+            <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
                 <li class="dropdown">
-                  <a href="javascript:;" id="my-pins-link"><span class="icon list"></span></a>
-                  <%= autocomplete_field_tag 'search', '', autocomplete_pin_title_pins_path, placeholder: "Search Pins",
-                      id: "search-input", class: "form-control dropdown-toggle", data: {:toggle => "dropdown"} %>
-                  <ul id="my-pins-list" class="ui-menu">
-                    <%= render :partial => 'mypins', :my_pins => @my_pins %>
+                  <a href="#" class="dropdown-toggle overflow" data-toggle="dropdown">
+                    <span class="profile-avatar"><%= image_tag avatar_url(current_user.email), alt: "?", class: "img-circle" %></span>
+                    <span class="profile-name"><%= current_user.name %></span>
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li class="profile">
+                      <a href="/myprofile">
+                        <span>Profil anzeigen</span>
+                      </a>
+                    </li>
+                    <li id="editprofile"><a href="/users/<%= current_user.id %>/edit">Profil bearbeiten</a></li>
+                    <li id="logout"><%= link_to t('logout'), '/logout' %></li>
                   </ul>
                 </li>
-            <% end %>
-          </ul>
-        </div>
-
-        <div id="header-logo" class="navbar-header">
-          <%= link_to image_tag("logo.png"), root_path %>
-        </div>
-
-        <!-- Right Nav Section -->
-        <div id="user-navigation">
-          <ul class="nav navbar-nav navbar-right">
-            <% if user_signed_in? %>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle overflow" data-toggle="dropdown">
-                  <span class="profile-avatar"><%= image_tag avatar_url(current_user.email), alt: "?", class: "img-circle" %></span>
-                  <span class="profile-name"><%= current_user.name %></span>
-                  <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="profile">
-                    <a href="/myprofile">
-                      <span>Profil anzeigen</span>
-                    </a>
-                  </li>
-                  <li id="editprofile"><a href="/users/<%= current_user.id %>/edit">Profil bearbeiten</a></li>
-                  <li id="logout"><%= link_to t('logout'), '/logout' %></li>
-                </ul>
-              </li>
-            <% else %>
-              <li class="login"><%= link_to t('login'), new_user_session_path %></li>
-              <li class="register"><%= link_to t('register'), new_user_registration_path %></li>
-            <% end %>
-          </ul>
+              <% else %>
+                <li class="login"><%= link_to t('login'), new_user_session_path %></li>
+                <li class="register"><%= link_to t('register'), new_user_registration_path %></li>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
   </nav>
   <div id="main">
-    <div id="main-navigation" class="navigation-area white-panel">
+    <div id="main-navigation">
       <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-8 col-md-offset-2">
               <ul class="nav">
-                <li class="col-xs-3 <%= cp("dashboard") %>">
+                <li class="col-xs-6 col-sm-3 <%= cp("dashboard") %>">
                   <a href="<%= dashboard_path %>">
                     <span class="icon pulse"></span>
                     <span class="icon-label"><%= t('main_nav_dashboard') %></span>
                   </a>
                 </li>
-                <li class="col-xs-3 <%= cp("pins") %>">
+                <li class="col-xs-6 col-sm-3 <%= cp("pins") %>">
                   <a href="<%= pins_path %>">
                     <span class="icon pin"></span>
                     <span class="icon-label"><%= t('main_nav_pins') %></span>
                   </a>
                 </li>
-                <li class="col-xs-3 <%= cp("users") %>">
+                <li class="col-xs-6 col-sm-3 <%= cp("users") %>">
                   <a href="<%= users_path %>">
                     <span class="icon users"></span>
                     <span class="icon-label"><%= t('main_nav_workers') %></span>
                   </a>
                 </li>
-                <li class="col-xs-3 <%= cp("places") %>">
+                <li class="col-xs-6 col-sm-3 <%= cp("places") %>">
                   <a href="<%= places_path %>">
                     <span class="icon map"></span>
                     <span class="icon-label"><%= t('main_nav_places') %></span>

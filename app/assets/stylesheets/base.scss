@@ -42,23 +42,24 @@ a:-moz-any-link:focus {
     position: relative;
 
     #search-wrapper {
-      @extend .col-xs-4;
+      @extend .col-sm-4;
       #search-box {
         #my-pins-link .icon {
           position: absolute;
           left: 6px;
           top: 4px;
           color: $brand-blue;
+          font-size: 24px;
         }
 
         #search-input {
           border: 0 none;
-          box-shadow: 0 2px 1px 0 $brand-blue;
+          box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
           font-size: $font-size-small;
           margin-top: 12px;
-          max-width: 350px;
           padding-left: 35px;
           top: 0;
+          height: 40px;
         }
 
         #my-pins-list {
@@ -66,25 +67,40 @@ a:-moz-any-link:focus {
           &.active {
             display: block;
             left: 0;
-            max-width: 350px;
             position: absolute;
             width: 100%;
             z-index: 2;
+          }
+        }
+
+        @media (min-width: $screen-sm-min) {
+          #search-input, #my-pins-list {
+            max-width: 350px;
           }
         }
       }
     }
 
     #header-logo {
-      @extend .col-xs-4;
+      @extend .col-xs-5, .col-sm-4;
       text-align: center;
       img {
         vertical-align: top;
       }
+      @media (max-width: $screen-xs-max) {
+        display: none;
+      }
+    }
+
+    #mobile-header-logo {
+      @extend .col-xs-8;
+      @media (min-width: $screen-sm-min) {
+        display: none;
+      }
     }
 
     #user-navigation {
-      @extend .col-xs-4;
+      @extend .col-sm-4;
       a {
         color: #FFFFFF;
       }
@@ -93,9 +109,10 @@ a:-moz-any-link:focus {
         .profile-avatar img {
           border-color: #FFFFFF;
         }
-
-        .login, .register {
-          padding-top: 14px;
+        @media (min-width: $screen-sm-min) {
+          .login, .register {
+            padding-top: 14px;
+          }
         }
 
         .dropdown-menu {
@@ -110,6 +127,11 @@ a:-moz-any-link:focus {
 
   #main-navigation {
     position: relative;
+    background-color: #FFFFFF;
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: $gray-border;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.07);
     a {
       text-align: center;
       font-weight: 500;
@@ -150,7 +172,7 @@ a:-moz-any-link:focus {
 
   .white-panel {
     background-color: #FFFFFF;
-    border: 1px solid #E4E4E4;
+    border: 1px solid $gray-border;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.07);
     &.clear-top {
       border-top-color: transparent;
@@ -199,7 +221,7 @@ a:-moz-any-link:focus {
 /* Headline Navigation */
 
 .headline-navigation .nav {
-  border-bottom: 1px solid #e4e4e4;
+  border-bottom: 1px solid $gray-border;
   text-align: center;
   li {
     display: inline-block;
