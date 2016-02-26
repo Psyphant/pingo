@@ -17,7 +17,7 @@
 <div <% if @pin.status == 3 || user_signed_in? && @pin.parent_id.nil? %>class="closed"<% end %> id="pin" data-id="<%= @pin.id %>">
   <div id="pin-title">
     <h1>
-      <span class="icon loudspeaker" title="<%=t('pins_supply') %>"></span>
+      <span class="icon supply" title="<%=t('pins_supply') %>"></span>
       <span class="icon-label"><%= @pin.title %></span>
     </h1>
     <% if @is_manager && user_signed_in? %></span>
@@ -43,9 +43,9 @@
                 <% if !@pin.deadline.blank? %>
                   <span class="deadline" title="<%= @pin.deadline.to_formatted_s(:long) %>">(
                     <% if @pin.deadline < DateTime.now %>
-                      <%= t("deadline_past", :time => distance_of_time_in_words(Time.now, @pin.deadline, true)) %>
+                      <%= t("deadline_past", :time => distance_of_time_in_words(Time.now, @pin.deadline)) %>
                     <% else %>
-                      <%= t("deadline_active", :time => distance_of_time_in_words(Time.now, @pin.deadline, true)) %>
+                      <%= t("deadline_active", :time => distance_of_time_in_words(Time.now, @pin.deadline)) %>
                     <% end %>
                     )
                   </span>
@@ -57,7 +57,7 @@
                 <span class="icon map"><!----></span>
                 <span class="icon-label">
                   <%= link_to @pin.address, {:action => :map_for_pin}, :id => "show-map-button",
-                              class: "header-actions left",
+                              class: "header-actions left", remote: true,
                               data: {toggle: "modal", target: "#ajax-modal",
                                      lat: @pin.latitude, long: @pin.longitude} %>
                 </span>

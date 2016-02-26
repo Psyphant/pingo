@@ -1,9 +1,7 @@
-class Tag < ActiveRecord::Base
-  attr_accessible :name
-  
+class Tag < ApplicationRecord
   belongs_to :user
   belongs_to :pin
-  
+
   def self.tags(options = {})
     query = "select tags.id, name, count(*) as count"
     query << " from taggings, tags"

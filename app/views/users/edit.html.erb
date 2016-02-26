@@ -19,7 +19,7 @@
         <div class="row">
           <div class="col-md-6">
           <%= f.label :name %>
-           <%= f.email_field :name, :autofocus => true, :class => "form-control" %>
+           <%= f.text_field :name, :autofocus => true, :class => "form-control" %>
           </div>
 
           <div class="col-md-6">
@@ -52,12 +52,19 @@
 
       <div class="form-group area html-content">
         <%= f.label :about, t('user_form_about') %>
-        <%= f.resizable_text_area :about, :class => "form-control", rows: "4" %>
+        <%= f.text_area :about, :class => "form-control", rows: "4" %>
+        <script type="text/javascript">
+          $(function() {
+              $("#user_about").froalaEditor({
+                toolbarButtons: ['bold', 'italic', 'underline', 'insertLink']
+              });
+          });
+        </script>
       </div>
 
       <div class="form-group">
         <%= f.label :skill_list, t('user_form_tags') %>
-        <%= f.text_field :skill_list, :class => "form-control" %>
+        <%= f.text_field :skill_list, :class => "form-control", value: @user.skill_list.to_s %>
       </div>
 
       <div class="form-group <% if (@user.latitude.nil? && @user.longitude.nil?) %>hidden<%end%>" id="radiusField">
@@ -103,7 +110,7 @@
             <%= link_to 'Delete my account', registration_path(@user), :class => "btn btn-default", :data => { :confirm => "Are you sure?" }, :method => :delete %>
           </div>
           <div class="col-md-4">
-            <%= link_to 'Speichern', "#", :onclick => "nicEditors.findEditor('user_about').saveContent();sendForm('edit_user');return false;", :class => "btn btn-primary pull-right" %>
+            <%= f.submit 'Speichern', :class => "btn btn-primary pull-right" %>
           </div>
         </div>
       </div>

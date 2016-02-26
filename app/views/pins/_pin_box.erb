@@ -34,9 +34,9 @@ end %>
             <% if !pin.deadline.blank? %>
               <span class="deadline" title="<%= pin.deadline.to_formatted_s(:long) %>">(
                 <% if pin.deadline < DateTime.now %>
-                  <%= t("deadline_past", :time => distance_of_time_in_words(Time.now, pin.deadline, true)) %>
+                  <%= t("deadline_past", :time => distance_of_time_in_words(Time.now, pin.deadline)) %>
                 <% else %>
-                  <%= t("deadline_active", :time => distance_of_time_in_words(Time.now, pin.deadline, true)) %>
+                  <%= t("deadline_active", :time => distance_of_time_in_words(Time.now, pin.deadline)) %>
                 <% end %>
                 )
               </span>

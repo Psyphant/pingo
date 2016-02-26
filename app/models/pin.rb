@@ -1,9 +1,8 @@
-class Pin < ActiveRecord::Base
+class Pin < ApplicationRecord
   self.inheritance_column = nil
   acts_as_taggable
   acts_as_taggable_on :skills
   acts_as_nested_set
-  attr_accessible :deadline, :description, :parent_id, :title, :skill_list, :country, :city, :street, :type, :picture, :picture_cache
 
   belongs_to :user
 
@@ -12,11 +11,13 @@ class Pin < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
 
+  accepts_nested_attributes_for :user
+  
   def gmaps4rails_address
     "#{self.street}, #{self.city}, #{self.country}"
   end
 
-  scope :by_join_date, order("created_at DESC")
+  scope :by_join_date, -> { order("created_at DESC") }
 
   def address
     @address = ""

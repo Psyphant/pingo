@@ -8,7 +8,7 @@
       <ul id="file-upload" class="dropdown-menu">
         <li class="uploader">
           <a href="#" class="upload-button">Computer</a>
-          <%= simple_form_for PinsFiles.new, :url => {:action => :new_file}, html: {multipart: true, id: "file-upload-form"} do |f| %>
+          <%= form_for PinsFile.new, :url => {:action => :new_file}, html: {multipart: true, id: "file-upload-form"} do |f| %>
             <%= f.file_field :file, id: "file-upload-input" %>
           <% end %>
           <script type="text/javascript">

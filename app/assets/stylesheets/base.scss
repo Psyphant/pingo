@@ -63,7 +63,18 @@ a:-moz-any-link:focus {
         }
 
         #my-pins-list {
+          background-color: #FFFFFF;
+          box-shadow: 0 2px 2px -1px #e4e4e4;
           display: none;
+          padding: 0 10px;
+          .dropdown-header {
+            font-size: $font-size-base;
+            border-bottom: 1px solid $gray-light;
+            font-weight: 200;
+          }
+          a {
+            padding: 5px 0;
+          }
           &.active {
             display: block;
             left: 0;

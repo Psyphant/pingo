@@ -8,7 +8,7 @@
         <%= t('pins_edit_header_categorie') %>
       <% end %>
     </h1>
-    <%= simple_form_for @pin, html: {multipart: true} do |f| %>
+    <%= form_for @pin, html: {multipart: true} do |f| %>
       <% if @pin.errors.any? %>
         <div class="error_messages">
           <h2>Form is invalid</h2>
@@ -30,7 +30,7 @@
           <% if @pin.type != 0 %>
             <div class="form-group col-md-12">
               <%= f.label :parent_id, t('pin_form_category') %>
-              <%= f.select :parent_id, categories_nested_select(pin) {|i| "#{'-' * i.level} #{i.title}" }, {prompt: t('pins_category_choose')}, {class: "form-control"}%>
+              <%= f.select :parent_id, categories_nested_select(@pin) {|i| "#{'-' * i.level} #{i.title}" }, {prompt: t('pins_category_choose')}, {class: "form-control"}%>
             </div>
           <% end %>
           <div class="form-group col-md-4">
@@ -54,7 +54,14 @@
       <% end %>
       <div class="form-group area html-content">
         <%= f.label :description, t('pin_form_description') %>
-        <%= f.resizable_text_area :description, :class => "form-control", rows: "4" %>
+        <%= f.text_area :description, :class => "form-control", rows: "4" %>
+        <script type="text/javascript">
+          $(function() {
+              $("#pin_description").froalaEditor({
+                toolbarButtons: ['bold', 'italic', 'underline', 'insertLink']
+              });
+          });
+        </script>
       </div>
       <div class="form-group">
         <%= f.label :skill_list, t('pin_form_tags') %>
@@ -119,7 +126,7 @@
           <% end %>
         </div>
         <div class="col-xs-4">
-          <%= link_to t('save'), "#", :onclick => "nicEditors.findEditor('pin_description').saveContent();sendForm('edit_pin');return false;", :class => "btn btn-primary pull-right" %>
+          <%= f.submit t('save'), :class => "btn btn-primary pull-right" %>
         </div>
       </div>
     <% end %>

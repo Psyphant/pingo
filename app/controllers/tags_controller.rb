@@ -8,8 +8,8 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:id])
 
     @users = User.tagged_with(@tag.name)
-    @supplies = Pin.tagged_with(@tag.name).where(:type => 1).joins(:user).select("pins.*, users.email as user_email, users.name as user_name, users.id as user_id")
-    @demands = Pin.tagged_with(@tag.name).where(:type => 2).joins(:user).select("pins.*, users.email as user_email, users.name as user_name, users.id as user_id")
+    @supplies = Pin.tagged_with(@tag.name).where(:type => 1).joins(:user).select("pins.*, users.email as user_email, users.name as user_name, users.id as user_id").to_a
+    @demands = Pin.tagged_with(@tag.name).where(:type => 2).joins(:user).select("pins.*, users.email as user_email, users.name as user_name, users.id as user_id").to_a
 
     @rel_tags_users = @users.collect{|x|x.skills}.flatten
     @rel_tags_supplies = @supplies.collect{|x|x.skills}.flatten
@@ -18,8 +18,8 @@ class TagsController < ApplicationController
     @related_tags.delete(@tag)
 
     if params[:pins_filter].present?
-      @supplies = @supplies.where('lower(title) LIKE ?', "%#{params[:pins_filter].downcase}%")
-      @demands = @demands.where('lower(title) LIKE ?', "%#{params[:pins_filter].downcase}%")
+      @supplies = @supplies.where('lower(title) LIKE ?', "%#{params[:pins_filter].downcase}%").to_a
+      @demands = @demands.where('lower(title) LIKE ?', "%#{params[:pins_filter].downcase}%").to_a
     end
 
     respond_to do |format|

@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       format.js
     end
   end
-  
+
   def autocomplete_user
     users = User.select('id, name').where('name LIKE ?', "%#{params[:name]}%")
     result = users.collect do |u|
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     params[:user].delete(:password) if params[:user][:password].blank?
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if @user.update_attributes(user_params)
         format.html { redirect_to :myprofile, notice: 'Your profile successfully updated.' }
         format.json { head :no_content }
       else
@@ -70,6 +70,11 @@ class UsersController < ApplicationController
       format.json { render json: @tag }
     end
 
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :about, :remember_me, :skill_list, :country, :city, :district, :latitude, :longitude, :radius, :locale)
   end
 
 end

@@ -1,8 +1,8 @@
 class PinsController < ApplicationController
 
-  before_filter :authenticate_user!, :only => :new
+  before_action :authenticate_user!, :only => :new
   protect_from_forgery :except => :index
-  uploads_nicedit_image :upload_action_name
+  #uploads_nicedit_image :upload_action_name
 
   autocomplete :pin, :title, :full => true
 
@@ -22,13 +22,13 @@ class PinsController < ApplicationController
           }
         end
       elsif params[:scope] == "unsorted"
-        @supplies = Pin.where(type: 1, parent_id: nil).joins(:user).select("pins.*, users.email as user_email, users.name as user_name, users.id as user_id")
-        @demands = Pin.where(type: 2, parent_id: nil).joins(:user).select("pins.*, users.email as user_email, users.name as user_name, users.id as user_id")
+        @supplies = Pin.where(type: 1, parent_id: nil).joins(:user).select("pins.*, users.email as user_email, users.name as user_name, users.id as user_id").to_a
+        @demands = Pin.where(type: 2, parent_id: nil).joins(:user).select("pins.*, users.email as user_email, users.name as user_name, users.id as user_id").to_a
         @most_used_tags = Pin.where(type: [1,2], parent_id: nil).skill_counts.order('count desc').limit(15)
 
         if params[:pins_filter].present?
-          @supplies = @supplies.where('lower(title) LIKE ?', "%#{params[:pins_filter].downcase}%")
-          @demands = @demands.where('lower(title) LIKE ?', "%#{params[:pins_filter].downcase}%")
+          @supplies = @supplies.where('lower(title) LIKE ?', "%#{params[:pins_filter].downcase}%").to_a
+          @demands = @demands.where('lower(title) LIKE ?', "%#{params[:pins_filter].downcase}%").to_a
         end
 
         respond_to do |format|
@@ -37,12 +37,12 @@ class PinsController < ApplicationController
           }
         end
       else
-        @supplies = Pin.where(type: 1).joins(:user).select("pins.*, users.email as user_email, users.name as user_name, users.id as user_id")
-        @demands = Pin.where(type: 2).joins(:user).select("pins.*, users.email as user_email, users.name as user_name, users.id as user_id")
+        @supplies = Pin.where(type: 1).joins(:user).select("pins.*, users.email as user_email, users.name as user_name, users.id as user_id").to_a
+        @demands = Pin.where(type: 2).joins(:user).select("pins.*, users.email as user_email, users.name as user_name, users.id as user_id").to_a
 
         if params[:pins_filter].present?
-          @supplies = @supplies.where('lower(title) LIKE ?', "%#{params[:pins_filter].downcase}%")
-          @demands = @demands.where('lower(title) LIKE ?', "%#{params[:pins_filter].downcase}%")
+          @supplies = @supplies.where('lower(title) LIKE ?', "%#{params[:pins_filter].downcase}%").to_a
+          @demands = @demands.where('lower(title) LIKE ?', "%#{params[:pins_filter].downcase}%").to_a
         end
 
         respond_to do |format|
@@ -60,9 +60,9 @@ class PinsController < ApplicationController
   def get_conversations(pin)
     if current_user
       if @is_manager
-        return Conversation.pin_involving(current_user, pin) #ToDo
+        #return Conversation.pin_involving(current_user, pin) #ToDo
       else
-        return Conversation.pin_involving(current_user, pin)
+        #return Conversation.pin_involving(current_user, pin)
       end
     else
       return nil
@@ -101,12 +101,14 @@ class PinsController < ApplicationController
       @conversations = get_conversations(@pin.id)
       @pin_chat_active = true
 
-      @pin_files = PinsFiles.find_all_by_pin_id(@pin.id)
+      @pin_files = PinsFile.find_by_pin_id(@pin.id)
 
       @file_others , @file_images = [], []
-      @pin_files.each do |attachment|
-        @file_images << attachment if ((attachment.file.content_type || "").split("/").first == 'image')
-        @file_others << attachment if ((attachment.file.content_type || "").split("/").first != 'image')
+      if !@pin_files.nil?
+        @pin_files.each do |attachment|
+          @file_images << attachment if ((attachment.file.content_type || "").split("/").first == 'image')
+          @file_others << attachment if ((attachment.file.content_type || "").split("/").first != 'image')
+        end
       end
     end
     respond_to do |format|
@@ -142,7 +144,7 @@ class PinsController < ApplicationController
   # GET /pins/new.json
   def new_file
     @pin = Pin.find(params[:id])
-    @pin_file = PinsFiles.new(params[:pins_files])
+    @pin_file = PinsFile.new(params[:pins_files])
     @pin_file.user_id = current_user.id
     @pin_file.pin_id = @pin.id
 
@@ -175,7 +177,7 @@ class PinsController < ApplicationController
   # POST /pins
   # POST /pins.json
   def create
-    @pin = Pin.new(params[:pin])
+    @pin = Pin.create(pin_params)
     @pin.user_id = current_user.id
 
     respond_to do |format|
@@ -196,7 +198,7 @@ class PinsController < ApplicationController
   def update
     @pin = Pin.find(params[:id])
     respond_to do |format|
-      if @pin.update_attributes(params[:pin].except(:user_list, :manager_ids))
+      if @pin.update_attributes(pin_params.except(:user_list, :manager_ids))
         format.html { redirect_to @pin, notice: 'pin was successfully updated.'}
         format.json { head :no_content }
       else
@@ -242,11 +244,13 @@ class PinsController < ApplicationController
 
   def map_for_pin
     @pin = Pin.find(params[:id])
-    @lat = @pin.latitude
-    @long = @pin.longitude
     respond_to do |format|
-      format.html { redirect_to root_path }
       format.js { render :action => 'map', :pin => @pin }
     end
+  end
+
+  private
+  def pin_params
+    params.require(:pin).permit(:id, :deadline, :description, :parent_id, :title, :skill_list, :country, :city, :street, :type, :picture, :picture_cache)
   end
 end

@@ -2,14 +2,18 @@
   <div class="headline-navigation">
     <ul class="nav">
       <li class="active">
-        <a href="<%=pins_path%>?scope=categories" data-toggle="headline-tab" data-target="#categories-overview">
+        <%= link_to pins_path+"?scope=categories", remote: true, data: {
+              toggle: "headline-tab", target: "#categories-overview", remote: true
+            } do %>
           <h1><%= t('pins_category_overview')%></h1>
-        </a>
+        <% end %>
       </li>
       <li>
-        <a href="<%=pins_path%>?scope=pins" data-toggle="headline-tab" data-target="#pins-overview">
+        <%= link_to pins_path+"?scope=pins", remote: true, data: {
+              toggle: "headline-tab", target: "#pins-overview", remote: true
+            } do %>
           <h1><%= t('pins_overview')%></h1>
-        </a>
+        <% end %>
       </li>
     </ul>
   </div>

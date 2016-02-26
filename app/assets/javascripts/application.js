@@ -12,20 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.autocomplete
 //= require jquery.livequery.min
 //= require jquery.timeago
+//= require jquery.ui.autocomplete
 //= require magnific-popup
 //= require gritter
 //= require bootstrap.min
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.de
-//= require nicEditInit.js.erb
-//= require nicEdit
+//= require froala_editor.min.js
+//= require plugins/link.min.js
 //= require modernizr
 //= require mapbox
 //= require markercluster
 //= require autocomplete-rails
-//= require chat
-//= require private_pub
-//= require messages
+//= require_tree .

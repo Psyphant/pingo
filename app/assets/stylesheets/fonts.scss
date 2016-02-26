@@ -10,55 +10,55 @@
   font-family: 'Roboto';
   font-weight: normal;
   font-style: normal;
-  src: asset-url('Roboto-Regular.eot', font);
-  src: asset-url('Roboto-Regular.eot', font) format('embedded-opentype'),
-       asset-url('Roboto-Regular.woff', font) format('woff'),
-       asset-url('Roboto-Regular.ttf', font) format('truetype'),
-       asset-url('Roboto-Regular.svg#RobotoRegular', font) format('svg');
+  src: font-url('Roboto-Regular.eot');
+  src: font-url('Roboto-Regular.eot') format('embedded-opentype'),
+       font-url('Roboto-Regular.woff') format('woff'),
+       font-url('Roboto-Regular.ttf') format('truetype'),
+       font-url('Roboto-Regular.svg#RobotoRegular') format('svg');
 }
 
 @font-face {
   font-family: 'Roboto';
   font-weight: 300;
   font-style: normal;
-  src: asset-url('Roboto-Light.eot', font);
-  src: asset-url('Roboto-Light.eot', font) format('embedded-opentype'),
-       asset-url('Roboto-Light.woff', font) format('woff'),
-       asset-url('Roboto-Light.ttf', font) format('truetype'),
-       asset-url('Roboto-Light.svg#RobotoLight', font) format('svg');
+  src: font-url('Roboto-Light.eot');
+  src: font-url('Roboto-Light.eot') format('embedded-opentype'),
+       font-url('Roboto-Light.woff') format('woff'),
+       font-url('Roboto-Light.ttf') format('truetype'),
+       font-url('Roboto-Light.svg#RobotoLight') format('svg');
 }
 
 @font-face {
   font-family: 'Roboto';
   font-weight: 500;
   font-style: normal;
-  src: asset-url('Roboto-Medium.eot', font);
-  src: asset-url('Roboto-Medium.eot', font) format('embedded-opentype'),
-       asset-url('Roboto-Medium.woff', font) format('woff'),
-       asset-url('Roboto-Medium.ttf', font) format('truetype'),
-       asset-url('Roboto-Medium.svg#RobotoMedium', font) format('svg');
+  src: font-url('Roboto-Medium.eot');
+  src: font-url('Roboto-Medium.eot') format('embedded-opentype'),
+       font-url('Roboto-Medium.woff') format('woff'),
+       font-url('Roboto-Medium.ttf') format('truetype'),
+       font-url('Roboto-Medium.svg#RobotoMedium') format('svg');
 }
 
 @font-face {
   font-family: 'Roboto';
   font-weight: 700;
   font-style: normal;
-  src: asset-url('Roboto-Bold.eot', font);
-  src: asset-url('Roboto-Bold.eot', font) format('embedded-opentype'),
-       asset-url('Roboto-Bold.woff', font) format('woff'),
-       asset-url('Roboto-Bold.ttf', font) format('truetype'),
-       asset-url('Roboto-Bold.svg#RobotoBold', font) format('svg');
+  src: font-url('Roboto-Bold.eot');
+  src: font-url('Roboto-Bold.eot') format('embedded-opentype'),
+       font-url('Roboto-Bold.woff') format('woff'),
+       font-url('Roboto-Bold.ttf') format('truetype'),
+       font-url('Roboto-Bold.svg#RobotoBold') format('svg');
 }
 
 @font-face {
   font-family: 'Flaticon';
   font-weight: normal;
   font-style: normal;
-  src: asset-url('flaticon.eot?37909921', font);
-  src: asset-url('flaticon.eot?37909921#iefix', font) format('embedded-opentype'),
-       asset-url('flaticon.woff?37909921', font) format('woff'),
-       asset-url('flaticon.ttf?37909921', font) format('truetype'),
-       asset-url('flaticon.svg?37909921#flaticon', font) format('svg');
+  src: font-url('flaticon.eot?37909921');
+  src: font-url('flaticon.eot?37909921#iefix') format('embedded-opentype'),
+       font-url('flaticon.woff?37909921') format('woff'),
+       font-url('flaticon.ttf?37909921') format('truetype'),
+       font-url('flaticon.svg?37909921#flaticon') format('svg');
 }
 
 .icon {

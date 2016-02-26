@@ -1,13 +1,14 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   acts_as_taggable
   acts_as_taggable_on :skills
   attr_accessor   :login, :current_password, :address
-  attr_accessible :login, :name, :email, :password, :password_confirmation, :about, :remember_me, :skill_list,
-                  :country, :city, :district, :latitude, :longitude, :radius, :locale, :current_password
+
   has_many :conversations, :foreign_key => :sender_id
   has_many :pins, :foreign_key => :user_id
+
+  validates :locale, presence: true
 
   geocoded_by :address
   reverse_geocoded_by :latitude, :longitude do |obj,results|

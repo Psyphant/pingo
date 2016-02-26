@@ -263,7 +263,7 @@
   padding: 10px 0;
   .header {
     @extend .col-sm-4;
-    h2 {
+    h2, h3 {
       margin: 0;
       .icon {
         font-size: 36px;

@@ -57,7 +57,14 @@
       <% end %>
       <div class="area html-content form-group">
         <%= f.label :description, t('pin_form_description') %>
-        <%= f.resizable_text_area :description, class: "form-control", rows: "4" %>
+        <%= f.text_area :description, :class => "form-control", rows: "4" %>
+        <script type="text/javascript">
+          $(function() {
+              $("#pin_description").froalaEditor({
+                toolbarButtons: ['bold', 'italic', 'underline', 'insertLink']
+              });
+          });
+        </script>
       </div>
       <% if @type != 0 %>
         <div class="form-group">
@@ -108,7 +115,7 @@
       <% end %>
       <div class="form-group top-margin">
         <%= link_to 'Abbrechen', pins_path, :class => "btn btn-default" %>
-        <%= link_to 'Erstellen', "#", :onclick => "nicEditors.findEditor('pin_description').saveContent();sendForm('new_pin');return false;", :class => "btn btn-primary pull-right" %>
+        <%= f.submit 'Erstellen', :class => "btn btn-primary pull-right" %>
       </div>
     <% end %>
   </div>
