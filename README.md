@@ -1,24 +1,18 @@
-## README
+## Pingo!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+... ein digitales Schwarzes Brett, welches für mich auch als Übungsplatz für Rails agiert.
 
-Things you may want to cover:
+### Mögliche Anwendungsfälle
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
+* Fluthilfe
+* Kleiderspende
+* Flüchtlingshilfe
+* Musikeraustausch
 * ...
+
+### Demo / Letzter Stand
+Findet ihr hier: https://duhajo.herokuapp.com
+
+### Mitstreiter
+
+... werden noch immer gesucht.
