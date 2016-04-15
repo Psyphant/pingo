@@ -70,11 +70,11 @@
             <% else %>
               <div class="pin-description-preview"><%= truncate_html @pin.description, :length => 150 %>
                 <% if @pin.description.html_safe.length > 150 %>
-                  <%= link_to_function 'Alles lesen', "$('.pin-description-preview').hide();$('.pin-description-full').show();$('#splitter-close').show();$(this).parent().hide();" %>
+                  <%= link_to "Alles lesen", '#', onclick: "$('.pin-description-preview').hide();$('.pin-description-full').show();$('#splitter-close').show();$(this).parent().hide(); return false;" %>
                 <% end %>
               </div>
               <div class="pin-description-full" style="display:none;"><%= @pin.description.html_safe %>
-                <%= link_to_function 'Weniger', "$('.pin-description-full').hide();$('.pin-description-preview').show();$('#splitter-open').show();$(this).parent().hide();" %>
+                <%= link_to "Weniger", "#", onclick: "$('.pin-description-full').hide();$('.pin-description-preview').show();$('#splitter-open').show();$(this).parent().hide(); return false;" %>
               </div>
             <% end %>
           </div>

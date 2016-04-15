@@ -20,10 +20,8 @@
 //= require bootstrap.min
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.de
-//= require froala_editor.min.js
-//= require plugins/link.min.js
+//= require trumbowyg/trumbowyg
+//= require trumbowyg/langs/de
 //= require modernizr
-//= require mapbox
-//= require markercluster
 //= require autocomplete-rails
 //= require_tree .

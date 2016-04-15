@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '>= 5.0.0.beta2', '< 5.1'
+gem 'rails', '>= 5.0.0.beta3', '< 5.1'
 # Use postgreSQL as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -23,12 +23,12 @@ gem "jquery-modal-rails"
 gem "bootstrap-datepicker-rails"
 #autocomplete
 gem "rails3-jquery-autocomplete"
-gem "wysiwyg-rails"
+gem 'trumbowyg_rails'
 #notification
 gem "gritter"
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'turbolinks', '~> 5.0.0.beta'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # Action Cable dependencies for the Redis adapter
