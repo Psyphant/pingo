@@ -10,7 +10,7 @@ ready = ->
   # recipient_id
   ###
 
-  $('#workers-overview .start-conversation').click (e) ->
+  $('#users-overview .start-conversation').click (e) ->
     e.preventDefault()
     sender_id = $(this).data('sid')
     recipient_id = $(this).data('rip')

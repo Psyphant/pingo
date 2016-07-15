@@ -8,7 +8,7 @@ de:
 
   main_nav_dashboard: "Dashboard"
   main_nav_pins: "Annoncen"
-  main_nav_workers: "Arbeiter"
+  main_nav_users: "Interessenten"
   main_nav_places: "Orte"
 
   pins_overview: "Annoncen Übersicht"
@@ -67,13 +67,13 @@ de:
   attachment: "Anhänge"
   attachment_not_found: "Es sind noch keine Anhänge hochgeladen wurden."
 
-  worker_overview: "Arbeiterübersicht"
+  users_overview: "Interessentenübersicht"
   filter_by: "Filtern nach"
   filter_by_name: "Per Namen suchen..."
   top_places: "Häufige Orte"
   top_skills: "Häufige Fähigkeiten"
-  workers_no_workers: "Keinen Arbeiter gefunden. Sorry!"
-  workers_near_search_info: "Suche nach einem Arbeiter, indem du einen Ort oder eine Straße angibst."
+  users_not_found: "Keinen Interessenten gefunden. Sorry!"
+  users_near_search_info: "Suche nach einem Interessenten, indem du einen Ort oder eine Straße angibst."
 
   dashboard_activities: "Aktivitäten"
   dashboard_no_activities: "Beteilige dich an Annoncen, um hier Aktivitäten zu sehen."

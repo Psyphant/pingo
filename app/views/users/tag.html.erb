@@ -1,14 +1,14 @@
-<div class="similar-workers">
-  <h2>Arbeiter mit dem Tag</h2>
-  <% if @workers.empty? %>
-     Sorry, keine Arbeiter mit diesem Tag gefunden!
+<div class="similar-users">
+  <h2><%= t('users_with_tag') %></h2>
+  <% if @users.empty? %>
+    <%= t('users_with_tag_not_found') %>
   <% else %>
-    <div class="workers-list">
+    <div class="users-list">
       <ul>
-        <% @workers.each do |worker|%>
-          <li class="worker-profile">
-            <span class="profile-avatar"><%= link_to image_tag(avatar_url(worker.email), alt: "?"), worker, :title => worker.name, :rel => "tipsy" %></span>
-            <span class="profile-name"><%= link_to worker.name, worker %></span>
+        <% @users.each do |user|%>
+          <li class="user-profile">
+            <span class="profile-avatar"><%= link_to image_tag(avatar_url(user.email), alt: "?"), user, :title => user.name, :rel => "tipsy" %></span>
+            <span class="profile-name"><%= link_to user.name, user %></span>
           </li>
         <% end %>
       </ul>
