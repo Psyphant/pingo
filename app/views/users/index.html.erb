@@ -1,7 +1,7 @@
 <%= javascript_include_tag 'users' %>
 <div class="container-fluid nospace">
-  <div id="workers-overview" class="content white space col-md-8">
-    <h1><%=t('worker_overview')%></h1>
+  <div id="users-overview" class="content white space col-md-8">
+    <h1><%=t('users_overview')%></h1>
     <% if @users.empty? %>
       <%= t('no_users_available') %>
     <% else %>
@@ -10,7 +10,7 @@
       </div>
   <% end %>
   </div>
-  <div id="workers-filter" class="space col-md-4">
+  <div id="users-filter" class="space col-md-4">
     <%= form_tag users_path, :method => 'get', :id => 'users-search' do %>
       <%= text_field_tag :name, params[:name], :placeholder => t('filter_by_name'), :class => 'search-input form-control' %>
       <%= link_to 'Name suchen', 'javascript:;', :id => 'name-search-button', :class => 'btn btn-default' %>

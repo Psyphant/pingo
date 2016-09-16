@@ -29,7 +29,7 @@ en:
 
   main_nav_dashboard: "Dashboard"
   main_nav_pins: "Pinboard"
-  main_nav_workers: "Workers"
+  main_nav_users: "People"
   main_nav_places: "Places"
 
   pins_overview: "Pin Overview"
@@ -89,13 +89,13 @@ en:
   attachment: "Attachment"
   attachment_not_found: "There are no attachments uploaded yet."
 
-  worker_overview: "Worker Overview"
+  users_overview: "People Overview"
   filter_by: "Filter by"
   filter_by_name: "Searching for name..."
   top_places: "Top Places"
   top_skills: "Top Skills"
-  workers_no_workers: "There are no workers available. Sorry!"
-  workers_near_search_info: "Find available workers in your area. Type in a street or city."
+  users_not_found: "There are no people available. Sorry!"
+  users_near_search_info: "Find available people in your area. Type in a street or city."
 
   dashboard_activities: "Activities"
   dashboard_no_activities: "You have to participate in pins to see activities here."

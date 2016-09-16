@@ -63,7 +63,7 @@ class UsersController < ApplicationController
 
   def tag
     @tag = Tag.find(params[:id])
-    @workers = User.tagged_with(@tag.name)
+    @users = User.tagged_with(@tag.name)
 
     respond_to do |format|
       format.html # show.html.erb.erb

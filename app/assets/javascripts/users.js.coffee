@@ -79,7 +79,7 @@ userFilter = (->
 )()
 
 $ ->
-  $("body").delegate "#workers-filter .place-list a", "click", ->
+  $("body").delegate "#users-filter .place-list a", "click", ->
     city = userFilter.getFilter("city")
     if city == @name
       userFilter.removeFilter("city", @name)
@@ -90,7 +90,7 @@ $ ->
       $(@).toggleClass "active"
     false
 
-  $("body").delegate "#workers-filter .tag-list a", "click", ->
+  $("body").delegate "#users-filter .tag-list a", "click", ->
     skill = userFilter.getFilter("skill")
     if skill == null #kein Skillfilter gesetzt
         userFilter.setFilter("skill", @name)
@@ -123,7 +123,7 @@ $ ->
         city_filter: @value,
         skill_filter: @value,
     ).success (data) ->
-      newFilterContent = $(data).find("#workers-filter")
+      newFilterContent = $(data).find("#users-filter")
       $("#city-filter").html newFilterContent.find("#city-filter").html()
       $("#skill-filter").html newFilterContent.find("#skill-filter").html()
     false
