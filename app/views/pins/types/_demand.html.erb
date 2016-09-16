@@ -107,7 +107,7 @@
           </div>
           <div class="actions">
             <% if user_signed_in? %>
-              <% if !@is_manager && @conversations.empty? %>
+              <% if !@is_manager && @conversations.blank? %>
                 <%= link_to "#", class: "btn btn-primary start-conversation",
                   "data-sid" =>  current_user.id, "data-rip" => @manager.id, 'data-pin_id' => @pin.id do %>
                   <span class="icon message"></span><span class="icon-label"><%= t("contact_manager") %></span>

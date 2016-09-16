@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # Serve websocket cable requests in-process
-  # mount ActionCable.server => '/cable'
-  
+  mount ActionCable.server => '/cable'
+
   devise_scope :user do
     get '/login', :to => 'users/sessions#new', :as => :login
     #post '/users/create', :to => 'users/sessions#create', :as => :user_session
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   #authenticate :user do
   #  root :to => 'dashboard#index'
   #end
-  
+
     get 'places/index'
 
   devise_for :users, :controllers => { :sessions => 'users/sessions', :registrations => 'users/registrations' }
@@ -62,5 +62,5 @@ Rails.application.routes.draw do
   match 'pins/:id/new_file' => 'pins#new_file', via: :put
 
   put 'pins/:id/like' => 'pins#like', :as => 'like_pin'
-  
+
 end
